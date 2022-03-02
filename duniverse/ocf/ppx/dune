@@ -1,0 +1,18 @@
+(library
+ (name ocf_ppx)
+ (public_name ocf_ppx)
+ (flags -g :standard -bin-annot -w -6-7-9-10-27-32-33-34-35-36-50-52 -no-strict-sequence)
+ (kind ppx_rewriter)
+ (libraries ocf ppxlib)
+ (modules ppx_ocf)
+ (preprocess (pps ppxlib.metaquot))
+)
+
+(executable
+  (name dummy)
+  (public_name ocf_ppx)
+  (libraries ocf_ppx ppxlib.runner )
+  (flags -linkall)
+  (modules dummy)
+  (package ocf_ppx)
+)

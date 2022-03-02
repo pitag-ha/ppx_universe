@@ -1,0 +1,7 @@
+(library
+ (name ocf)
+ (public_name ocf)
+ (wrapped false)
+ (flags -g :standard -bin-annot -w -6-7-9-10-27-32-33-34-35-36-50-52 -no-strict-sequence)
+ (libraries yojson)
+)

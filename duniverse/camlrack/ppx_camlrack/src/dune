@@ -1,0 +1,6 @@
+(library
+ (public_name ppx_camlrack)
+ (kind ppx_rewriter)
+ (libraries camlrack ppxlib)
+ (modules common ppx_sexp ppx_spat ppx_camlrack)
+ (preprocess (pps ppxlib.metaquot)))
