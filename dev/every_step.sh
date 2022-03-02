@@ -1,12 +1,6 @@
 #!/bin/bash
 set -e
 
-github-remote-add() {
-    origin=$(git config --get remote.origin.url)
-    echo "git remote add $1 git@github.com:$1/${origin##*/}"
-    git remote add $1 git@github.com:$1/${origin##*/}
-}
-
 # allow packages in the work space that don't directly build with dune, but have a dune port in the dune-universe
 opam repo add dune-universe git+https://github.com/dune-universe/opam-overlays.git
 
@@ -73,11 +67,11 @@ git checkout master &&
 cd ../..
 
 # remove an empty opam file in spoc_ppx. Additionally to that empty opam file, it also has a correct opam file
-cd rev-deps/spoc_ppx
-rm Spoc/spoc.opam
-git add Spoc/spoc.opam
-git commit -m "Remove empty opam file"
-cd ..
+cd rev-deps/spoc_ppx &&
+(rm Spoc/spoc.opam || true) &&
+(git add Spoc/spoc.opam || true) &&
+(git commit -m "Remove empty opam file" || true) &&
+cd ../..
 
 # checkout gospel to the commit before updating to cmdliner.1.1.0
 cd rev-deps/gospel &&
