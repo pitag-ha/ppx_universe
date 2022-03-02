@@ -1,6 +1,5 @@
 (library
  (name stdcompat)
- (public_name stdcompat)
  (modules stdcompat__native stdcompat__init stdcompat__root stdcompat__seq
    stdcompat__tools
    stdcompat__pervasives stdcompat__arg stdcompat__lazy

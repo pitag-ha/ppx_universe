@@ -82,6 +82,7 @@ cd ../..
 # Remove the ppxlib constraint "<= 0.24" in OCanren-ppx: we've forced opam-monorepo to consider the ppxlib version to be 0.24.0 and opam's ordering consideres 0.24 strictly smaller than 0.24.0
 cd rev-deps/OCanren-ppx &&
 sed -i "s/>= \"0.22\" \& <= \"0.24\"/>= \"0.22\" \& < \"0.25.0\"/g" OCanren-ppx.opam
+# Manually: same in dune-project
 git add OCanren-ppx.opam
 git commit -m "Remove ppxlib constraint for workspace creation"
 cd ../..
@@ -90,9 +91,10 @@ cd ../..
 ./dev/helpers.sh install-deps
 
 # remove duplicates that are both in `rev-deps/` and `duniverse/` due to multi-package structures
-rm -rf duniverse/bitstring/ duniverse/gen_js_api/ duniverse/js_of_ocaml/ duniverse/landmarks/ duniverse/lwt/ duniverse/ocaml-cstruct/ duniverse/ocf/ duniverse/ppx_deriving/ duniverse/ppx_deriving_yojson/ duniverse/repr/ duniverse/tyxml/ duniverse/wtr/ duniverse/camlrack
+rm -rf duniverse/bitstring/ duniverse/gen_js_api/ duniverse/js_of_ocaml/ duniverse/landmarks/ duniverse/lwt/ duniverse/ocaml-cstruct/ duniverse/ocf/ duniverse/ppx_deriving/ duniverse/ppx_deriving_yojson/ duniverse/repr/ duniverse/tyxml/ duniverse/wtr/ duniverse/camlrack duniverse/ocaml-rpc
 
-# there are three things that need to be done manually to be compatible with dune.3.0.2:
+# some things to do manually:
 # 1. add `(modules_without_implementation clangml_config)` to rev-deps/clangml/config/dune
 # 2. remove uchar from rev-deps/sedlex/src/lib/dune
 # 3. remove uchar from rev-deps/js_of_ocaml/lib/js_of_ocaml/dune
+# 4. remove `(public_name stdcompat)` from duniverse/stdcompat/dune

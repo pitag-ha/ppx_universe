@@ -1,1 +1,0 @@
-exception CamlrackError of string
