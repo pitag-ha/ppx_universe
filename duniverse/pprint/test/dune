@@ -1,4 +1,0 @@
-(test
-  (name PPrintTest)
-  (libraries unix pprint)
-)

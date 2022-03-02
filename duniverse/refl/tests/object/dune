@@ -1,4 +1,0 @@
-(test
-  (name object)
-  (preprocess (pps refl.ppx))
-  (libraries refl))

@@ -60,6 +60,11 @@ sed -i '/spoc_ppx/d' rev-deps/.deps # (recursively) depends on camlp4, which doe
 sed -i '/GT/d' rev-deps/.deps # (recursively) depends on logger-p5, which doesn't build with dune and isn't on opam-overlays
 sed -i '/rdf_ppx/d' rev-deps/.deps # (recursively) depends on uucp >= 4.14.0, which doesn't build with dune. opam-overlays only has uucp.4.13.0
 sed -i '/ppx_deriving_popper/d' rev-deps/.deps # (recursively) depends on pringo, which doesn't build with dune and isn't on opam-overlays
+sed -i '/metapp/d' rev-deps/.deps # (recursively) depends on stdcompat, which doesn't doesnt' declare dune in it's opam file and isn't on opam-overlays. Tried adding stdcompat to opam-overlays, but that isn't straight-forward (dune complains about it having a public_name)
+sed -i '/metaquot/d' rev-deps/.deps # (recursively) depends on stdcompat, which doesn't doesnt' declare dune in it's opam file and isn't on opam-overlays. Tried adding stdcompat to opam-overlays, but that isn't straight-forward (dune complains about it having a public_name)
+sed -i '/override/d' rev-deps/.deps # (recursively) depends on stdcompat, which doesn't doesnt' declare dune in it's opam file and isn't on opam-overlays. Tried adding stdcompat to opam-overlays, but that isn't straight-forward (dune complains about it having a public_name)
+sed -i '/ppx_inline_alcotest/d' rev-deps/.deps # (recursively) depends on stdcompat, which doesn't doesnt' declare dune in it's opam file and isn't on opam-overlays. Tried adding stdcompat to opam-overlays, but that isn't straight-forward (dune complains about it having a public_name)
+sed -i '/pla/d' rev-deps/.deps # (recursively) depends on stdcompat, which doesn't doesnt' declare dune in it's opam file and isn't on opam-overlays. Tried adding stdcompat to opam-overlays, but that isn't straight-forward (dune complains about it having a public_name)
 sed -i '/js_of_ocaml-compiler/d' rev-deps/.deps # doesn't compile with ocaml.4.14.0
 
 # check out a branch of ppxx that depends on ppxlib and has a ppxx.opam file. It's default branch doesn't have an opam file.
@@ -91,10 +96,14 @@ cd ../..
 ./dev/helpers.sh install-deps
 
 # remove duplicates that are both in `rev-deps/` and `duniverse/` due to multi-package structures
-rm -rf duniverse/bitstring/ duniverse/gen_js_api/ duniverse/js_of_ocaml/ duniverse/landmarks/ duniverse/lwt/ duniverse/ocaml-cstruct/ duniverse/ocf/ duniverse/ppx_deriving/ duniverse/ppx_deriving_yojson/ duniverse/repr/ duniverse/tyxml/ duniverse/wtr/ duniverse/camlrack duniverse/ocaml-rpc
+rm -rf duniverse/bitstring/ duniverse/gen_js_api/ duniverse/js_of_ocaml/ duniverse/landmarks/ duniverse/lwt/ duniverse/ocaml-cstruct/ duniverse/ocf/ duniverse/ppx_deriving/ duniverse/ppx_deriving_yojson/ duniverse/repr/ duniverse/tyxml/ duniverse/wtr/ duniverse/camlrack duniverse/ocaml-rpc duniverse/metapp duniverse/metaquot 
 
 # some things to do manually:
 # 1. add `(modules_without_implementation clangml_config)` to rev-deps/clangml/config/dune
 # 2. remove uchar from rev-deps/sedlex/src/lib/dune
 # 3. remove uchar from rev-deps/js_of_ocaml/lib/js_of_ocaml/dune
 # 4. remove `(public_name stdcompat)` from duniverse/stdcompat/dune
+
+# work around a ctypes bug
+rm -rf duniverse/ocaml-ctypes/ duniverse/ocaml-integers/ duniverse/bigarray-compat/ duniverse/stdlib-shims/
+opam install ctypes-foreign -y

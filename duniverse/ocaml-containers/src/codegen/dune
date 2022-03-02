@@ -1,7 +1,0 @@
-
-(library
-  (name containers_codegen)
-  (public_name containers.codegen)
-  (synopsis "code generators for Containers")
-  (libraries containers)
-  (flags :standard -warn-error -a+8))

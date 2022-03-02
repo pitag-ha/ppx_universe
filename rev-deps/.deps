@@ -41,7 +41,6 @@ ppx_yojson_conv.v0.14.0
 toplevel_expect_test.v0.14.1
 bisect_ppx.2.8.0
 bistro.0.6.0
-embedded_ocaml_templates.0.7
 extunix.0.4.0
 fsml.0.3.0
 gen_js_api.1.1.0
@@ -56,8 +55,6 @@ lens.1.2.5
 let-if.0.2.0
 logs-ppx.0.2.0
 lwt_ppx.2.0.3
-metapp.0.4.2
-metaquot.0.5.0
 node_of_ocaml.1.0.0
 OCanren-ppx.0.3.0~alpha1
 obus.1.2.3
@@ -65,9 +62,7 @@ ocaml-monadic.0.5
 ocf_ppx.0.8.0
 ocsigen-i18n.4.0.0
 ocsigen-ppx-rpc.1.0
-override.0.4.0
 pacomb.1.1
-pla.2.0
 ppx-owl-opt.0.0.1
 ppx_bap.v0.14.0
 ppx_bitstring.4.1.0
@@ -90,7 +85,6 @@ ppx_factory.0.2.0
 ppx_gen_rec.2.0.0
 ppx_getenv.2.1
 ppx_import.1.9.1
-ppx_inline_alcotest.1.0.0
 ppx_irmin.3.1.0
 ppx_jsobject_conv.0.9.0
 ppx_make.0.3.0

@@ -126,6 +126,7 @@ do
     echo "---------------------------"
   else
     echo "'opam monorepo lock --build-only $line --ocaml-version 4.14.0' failed"
+    return 0
   fi
 done < rev-deps/.deps
 }

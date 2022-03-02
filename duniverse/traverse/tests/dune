@@ -1,3 +1,0 @@
-(test
-  (name traverse_tests)
-  (libraries traverse))

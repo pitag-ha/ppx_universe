@@ -1,3 +1,0 @@
-(executable
-  (name list_manual)
-  (libraries refl))

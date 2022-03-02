@@ -1,4 +1,0 @@
-(test
-  (name enum)
-  (preprocess (pps refl.ppx))
-  (libraries refl))
