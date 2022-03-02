@@ -76,8 +76,8 @@ install_deps () {
   do
     PACKAGES="$PACKAGES $line"
   done < rev-deps/.deps
-  opam  monorepo lock -v -v --build-only $PACKAGES --ocaml-version 4.14.0|| echo "opam monorepo lock has failed" &&
-  opam monorepo pull || echo "opam monorepo pull has failed"
+  opam  monorepo lock --lockfile rev-deps.locked -v -v --build-only $PACKAGES --ocaml-version 4.14.0|| echo "opam monorepo lock has failed" &&
+  opam monorepo pull --lockfile rev-deps.locked || echo "opam monorepo pull has failed"
 }
 
 build () {

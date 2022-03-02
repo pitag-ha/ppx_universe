@@ -9,7 +9,7 @@ opam repo add dune-universe-pitag git+https://github.com/pitag-ha/opam-overlays.
 
 opam update
 # pin to an old opam-monorepo since the last version has a bug
-opam pin add opam-monorepo https://github.com/ocamllabs/opam-monorepo.git#93720f04680d2443c92de22d473495537198dcaf -y
+opam pin add opam-monorepo https://github.com/ocamllabs/opam-monorepo.git#8054037deccc8b50e3e0755a0bbf4976f2360aab -y
 
 # pin ppxlib to the current branch giving it version 0.24.0.
 # if not, opam-monorepo will give it the place-holder version zdev and run into resolver conflicts for packages explicitly requiring ppxlib <= 0.24.0
@@ -58,7 +58,8 @@ sed -i '/nuscr/d' rev-deps/.deps # (recursively) depends on process, which doesn
 sed -i '/xtmpl_ppx/d' rev-deps/.deps # (recursively) depends on process, which doesn't build with dune and isn't on opam-overlays
 sed -i '/spoc_ppx/d' rev-deps/.deps # (recursively) depends on camlp4, which doesn't build with dune and isn't on opam-overlays
 sed -i '/GT/d' rev-deps/.deps # (recursively) depends on logger-p5, which doesn't build with dune and isn't on opam-overlays
-sed -i '/rdf_ppx/d' rev-deps/.deps # depends on uucp >= 4.14.0, which doesn't build with dune. opam-overlays only has uucp.4.13.0
+sed -i '/rdf_ppx/d' rev-deps/.deps # (recursively) depends on uucp >= 4.14.0, which doesn't build with dune. opam-overlays only has uucp.4.13.0
+sed -i '/ppx_deriving_popper/d' rev-deps/.deps # (recursively) depends on pringo, which doesn't build with dune and isn't on opam-overlays
 sed -i '/js_of_ocaml-compiler/d' rev-deps/.deps # doesn't compile with ocaml.4.14.0
 
 # check out a branch of ppxx that depends on ppxlib and has a ppxx.opam file. It's default branch doesn't have an opam file.
@@ -80,7 +81,7 @@ cd ../..
 
 # Remove the ppxlib constraint "<= 0.24" in OCanren-ppx: we've forced opam-monorepo to consider the ppxlib version to be 0.24.0 and opam's ordering consideres 0.24 strictly smaller than 0.24.0
 cd rev-deps/OCanren-ppx &&
-sed -i "s/>= \"0.22\" \& <= \"0.24\"/>= \"0.22 \& < \"0.25.0\"/g" OCanren-ppx.opam
+sed -i "s/>= \"0.22\" \& <= \"0.24\"/>= \"0.22\" \& < \"0.25.0\"/g" OCanren-ppx.opam
 git add OCanren-ppx.opam
 git commit -m "Remove ppxlib constraint for workspace creation"
 cd ../..
