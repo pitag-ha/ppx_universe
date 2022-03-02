@@ -157,15 +157,6 @@
 [submodule "rev-deps/js_of_ocaml"]
 	path = rev-deps/js_of_ocaml
 	url = https://github.com/ocsigen/js_of_ocaml.git
-[submodule "rev-deps/js_of_ocaml-compiler"]
-	path = rev-deps/js_of_ocaml-compiler
-	url = https://github.com/ocsigen/js_of_ocaml.git
-[submodule "rev-deps/js_of_ocaml-ppx"]
-	path = rev-deps/js_of_ocaml-ppx
-	url = https://github.com/ocsigen/js_of_ocaml.git
-[submodule "rev-deps/js_of_ocaml-ppx_deriving_json"]
-	path = rev-deps/js_of_ocaml-ppx_deriving_json
-	url = https://github.com/ocsigen/js_of_ocaml.git
 [submodule "rev-deps/landmarks-ppx"]
 	path = rev-deps/landmarks-ppx
 	url = https://github.com/LexiFi/landmarks.git
@@ -349,9 +340,6 @@
 [submodule "rev-deps/rdf_ppx"]
 	path = rev-deps/rdf_ppx
 	url = https://framagit.org/zoggy/ocaml-rdf.git
-[submodule "rev-deps/repr-fuzz"]
-	path = rev-deps/repr-fuzz
-	url = https://github.com/mirage/repr.git
 [submodule "rev-deps/res_tailwindcss"]
 	path = rev-deps/res_tailwindcss
 	url = https://github.com/green-labs/res_tailwindcss.git
@@ -361,9 +349,6 @@
 [submodule "rev-deps/spoc_ppx"]
 	path = rev-deps/spoc_ppx
 	url = https://github.com/mathiasbourgoin/SPOC.git
-[submodule "rev-deps/tyxml-jsx"]
-	path = rev-deps/tyxml-jsx
-	url = https://github.com/ocsigen/tyxml.git
 [submodule "rev-deps/tyxml-ppx"]
 	path = rev-deps/tyxml-ppx
 	url = https://github.com/ocsigen/tyxml.git
@@ -379,3 +364,6 @@
 [submodule "rev-deps/xtmpl_ppx"]
 	path = rev-deps/xtmpl_ppx
 	url = https://framagit.org/zoggy/xtmpl.git
+[submodule "rev-deps/ppx_deriving_jsoo"]
+	path = rev-deps/ppx_deriving_jsoo
+	url = https://gitlab.com/o-labs/ppx_deriving_jsoo
